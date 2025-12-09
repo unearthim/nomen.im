@@ -20,6 +20,70 @@
     <!-- === 2. Webmention Endpoint === -->
     <link rel="webmention" href="https://webmention.io/unearth.im/webmention" />
 
+    <!-- === Schema.org JSON-LD === -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": ["VisualArtwork"],
+          "@id": "https://nomen.im/#content",
+          "name": "nomen.im | A Ceremony for Your Name",
+          "description": "A simple, interactive ceremony to reflect on the meaning and power of your name, reminding you that it is a masterpiece.",
+          "url": "https://nomen.im/",
+          "datePublished": "2024-12-01",
+          "artMedium": "Interactive Web Experience",
+          "artForm": "Digital Monument",
+          "creator": [
+            { "@id": "https://josiest.com/#person" },
+            { "@id": "https://felixvelas.co/#person" }
+          ],
+          "publisher": { "@id": "https://unearth.im/#organization" }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://nomen.im/#website",
+          "url": "https://nomen.im/",
+          "name": "nomen.im",
+          "publisher": { "@id": "https://unearth.im/#organization" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://unearth.im/#organization",
+          "name": "unearth.im",
+          "url": "https://unearth.im/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://unearth.im/assets/unearth-logo.png"
+          },
+          "sameAs": [
+            "https://twitter.com/unearthim",
+            "https://github.com/unearthim"
+          ],
+          "foundingDate": "2024"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://josiest.com/#person",
+          "name": "Josie Jefferson",
+          "jobTitle": "Digital Archaeologist & Trust Architect",
+          "url": "https://josiest.com/",
+          "sameAs": ["https://notjojo.im"],
+          "affiliation": { "@id": "https://unearth.im/#organization" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://felixvelas.co/#person",
+          "name": "Felix Velasco",
+          "jobTitle": "Trust Architect & Digital Archaeologist",
+          "url": "https://felixvelas.co/",
+          "sameAs": ["https://www.linkedin.com/in/felix-velasco-b793015"],
+          "affiliation": { "@id": "https://unearth.im/#organization" }
+        }
+      ]
+    }
+    </script>
+
     <!-- === 3. Open Graph / Facebook === -->
     <meta property="og:type" content="website"> 
     <meta property="og:url" content="https://nomen.im/">
@@ -183,7 +247,10 @@
 </head>
 <body>
 
-    <a href="https://unearth.im" target="_blank" class="logo">nomen<span>.im</span></a>
+    <small>
+        a <b><a href="https://sentientification.com" target="_blank" rel="noopener noreferrer" class="logo">liminal mind meld</a></b> collaboration:
+        digital monument by <b><a href="https://unearth.im" target="_blank" rel="noopener noreferrer" class="logo">unearth.im</a></b> | <b><a href="https://archaeobytology.org" target="_blank" rel="noopener noreferrer" class="logo">archive & anvil</a></b>
+    </small>
 
     <div class="container" id="container">
         <div class="content-wrapper" id="content-wrapper">
