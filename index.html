@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,18 @@
     <!-- === 1. Primary Meta Tags === -->
     <title>nomen.im | A Ceremony for Your Name</title>
     <meta name="title" content="nomen.im | A Ceremony for Your Name">
-    <meta name="description" content="A simple, interactive ceremony to reflect on the meaning and power of your name, reminding you that it is a masterpiece.">
-    <meta name="keywords" content="name, identity, meaning of name, self-reflection, interactive experience, personal story, what is my name">
-    <meta name="author" content="nomen.im (An unearth.im Project)">
+    <meta name="description"
+        content="A simple, interactive ceremony to reflect on the meaning and power of your name, reminding you that it is a masterpiece.">
+    <meta name="keywords"
+        content="name, identity, meaning of name, self-reflection, interactive experience, personal story, what is my name">
+    <meta name="author" content="nomen.im (by unearth heritage foundry - archive & anvil - unearth.im)">
     <meta name="robots" content="index, follow">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="language" content="English">
-    
+
     <!-- === Canonical Link === -->
     <link rel="canonical" href="https://nomen.im/" />
- 
+
     <!-- === 2. Webmention Endpoint === -->
     <link rel="webmention" href="https://webmention.io/unearth.im/webmention" />
 
@@ -50,7 +53,8 @@
         {
           "@type": "Organization",
           "@id": "https://unearth.im/#organization",
-          "name": "unearth.im",
+          "name": "Unearth Heritage Foundry",
+"alternateName": ["Unearth Foundry","Archive & Anvil","Unearth Anvil","Unearth Works","Cultural Infrastructure Foundry"],
           "url": "https://unearth.im/",
           "logo": {
             "@type": "ImageObject",
@@ -85,10 +89,11 @@
     </script>
 
     <!-- === 3. Open Graph / Facebook === -->
-    <meta property="og:type" content="website"> 
+    <meta property="og:type" content="website">
     <meta property="og:url" content="https://nomen.im/">
     <meta property="og:title" content="nomen.im | A Ceremony for Your Name">
-    <meta property="og:description" content="A simple, interactive ceremony to reflect on the meaning and power of your name, reminding you that it is a masterpiece.">
+    <meta property="og:description"
+        content="A simple, interactive ceremony to reflect on the meaning and power of your name, reminding you that it is a masterpiece.">
     <meta property="og:image" content="https://nomen.im/og-image.png">
     <meta property="og:site_name" content="nomen.im">
 
@@ -96,7 +101,8 @@
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://nomen.im/">
     <meta property="twitter:title" content="nomen.im | A Ceremony for Your Name">
-    <meta property="twitter:description" content="A simple, interactive ceremony to reflect on the meaning and power of your name, reminding you that it is a masterpiece.">
+    <meta property="twitter:description"
+        content="A simple, interactive ceremony to reflect on the meaning and power of your name, reminding you that it is a masterpiece.">
     <meta property="twitter:image" content="https://nomen.im/og-image.png">
 
     <!-- === 5. Favicons & Theme === -->
@@ -108,21 +114,28 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;600&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             /* "Dusk & Vellum" palette */
-            --bg-color: #0A0E1B; /* Deep Navy */
-            --text-color: #F8F7F4; /* Off-White / Vellum */
-            --accent-color: #FF8A00; /* Luminous Ember */
-            --meta-text-color: #a0a0a0; /* Softer Gray */
+            --bg-color: #0A0E1B;
+            /* Deep Navy */
+            --text-color: #F8F7F4;
+            /* Off-White / Vellum */
+            --accent-color: #FF8A00;
+            /* Luminous Ember */
+            --meta-text-color: #a0a0a0;
+            /* Softer Gray */
             --input-border-color: #4a4a4a;
             --total-phrases: 20;
             --phrase-duration: 2s;
             --animation-total-duration: calc(var(--total-phrases) * var(--phrase-duration));
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             padding: 0;
@@ -151,7 +164,7 @@
             width: 100%;
             transition: opacity 1s ease-in-out;
         }
-        
+
         .name-display {
             font-size: clamp(3rem, 10vw, 6rem);
             font-weight: 500;
@@ -161,13 +174,14 @@
             min-height: 100px;
             transition: opacity 1s ease-in-out, color 1s ease-in-out;
         }
-        
+
         .name-display.submitted:hover {
             cursor: pointer;
             opacity: 0.8;
         }
-        
-        .prompt, .affirmation {
+
+        .prompt,
+        .affirmation {
             font-family: 'Inter', sans-serif;
             font-size: 1.1rem;
             color: var(--meta-text-color);
@@ -200,9 +214,10 @@
 
         .affirmation-container {
             min-height: 50px;
-            position: relative; /* Needed for absolute positioning of children */
+            position: relative;
+            /* Needed for absolute positioning of children */
         }
-        
+
         .affirmation-text {
             /* THIS IS THE FIX: Explicitly setting the color */
             color: var(--meta-text-color);
@@ -214,17 +229,32 @@
             opacity: 0;
             animation: fade-cycle var(--animation-total-duration) linear infinite;
         }
-        
+
         /* Stagger the animation for each phrase */
         /* JS will now add these dynamically */
 
         @keyframes fade-cycle {
+
             /* Each phrase is visible for 5% of the total duration */
-            0%   { opacity: 0; }
-            2.5% { opacity: 1; }
-            5%   { opacity: 1; }
-            7.5% { opacity: 0; }
-            100% { opacity: 0; }
+            0% {
+                opacity: 0;
+            }
+
+            2.5% {
+                opacity: 1;
+            }
+
+            5% {
+                opacity: 1;
+            }
+
+            7.5% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
         }
 
         .logo {
@@ -238,18 +268,21 @@
             letter-spacing: 0.5px;
             text-decoration: none;
         }
-        
+
         .logo span {
             color: var(--accent-color);
         }
-
     </style>
 </head>
+
 <body>
 
     <small>
-        a <b><a href="https://sentientification.com" target="_blank" rel="noopener noreferrer" class="logo">liminal mind meld</a></b> collaboration:
-        digital monument by <b><a href="https://unearth.im" target="_blank" rel="noopener noreferrer" class="logo">unearth.im</a></b> | <b><a href="https://archaeobytology.org" target="_blank" rel="noopener noreferrer" class="logo">archive & anvil</a></b>
+        a <b><a href="https://sentientification.com" target="_blank" rel="noopener noreferrer" class="logo">liminal mind
+                meld</a></b> collaboration:
+        digital monument by <b><a href="https://unearth.im" target="_blank" rel="noopener noreferrer"
+                class="logo">unearth.im</a></b> | <b><a href="https://archaeobytology.org" target="_blank"
+                rel="noopener noreferrer" class="logo">archive & anvil</a></b>
     </small>
 
     <div class="container" id="container">
@@ -276,15 +309,15 @@
             const container = document.getElementById('container');
 
             const affirmations = [
-                "It is the first gift you are given.", "It is a sound that means 'you'.", "It is a thread in a story.", 
-                "It is a word with a heartbeat.", "It is the anchor of your identity.", "It is the title of your story.", 
-                "It is a promise whispered at birth.", "It is the first word you owned.", "It is a bridge to your ancestors.", 
-                "It is a map of your becoming.", "It is a song only you can hear.", "It is a vessel for your legacy.", 
-                "It is a signature on the world.", "It is the beginning of your poem.", "It is a key to being known.", 
-                "It is a constellation of letters.", "It is a single word, holding worlds.", "It is the echo of your existence.", 
-                "It is a word spoken with love.", "It is a spell for summoning yourself.", "It is the first piece of your personal myth.", 
-                "It is a sound that shapes the air.", "It is a word that carries your history.", "It is the handle by which the world holds you.", 
-                "It is a seed planted in the soil of your life.", "It is a quiet hum beneath all you do.", "It is a word that holds your potential.", 
+                "It is the first gift you are given.", "It is a sound that means 'you'.", "It is a thread in a story.",
+                "It is a word with a heartbeat.", "It is the anchor of your identity.", "It is the title of your story.",
+                "It is a promise whispered at birth.", "It is the first word you owned.", "It is a bridge to your ancestors.",
+                "It is a map of your becoming.", "It is a song only you can hear.", "It is a vessel for your legacy.",
+                "It is a signature on the world.", "It is the beginning of your poem.", "It is a key to being known.",
+                "It is a constellation of letters.", "It is a single word, holding worlds.", "It is the echo of your existence.",
+                "It is a word spoken with love.", "It is a spell for summoning yourself.", "It is the first piece of your personal myth.",
+                "It is a sound that shapes the air.", "It is a word that carries your history.", "It is the handle by which the world holds you.",
+                "It is a seed planted in the soil of your life.", "It is a quiet hum beneath all you do.", "It is a word that holds your potential.",
                 "It is a banner flown from the castle of your self.", "It is a name for a masterpiece: you."
             ];
 
@@ -294,7 +327,7 @@
             const phraseDuration = 2; // in seconds
             const totalPhrases = affirmations.length;
             const animationTotalDuration = totalPhrases * phraseDuration;
-            
+
             // Set CSS variables for JS access
             document.documentElement.style.setProperty('--total-phrases', totalPhrases);
             document.documentElement.style.setProperty('--phrase-duration', `${phraseDuration}s`);
@@ -314,7 +347,7 @@
                 for (let i = 0; i < str.length; i++) {
                     const char = str.charCodeAt(i);
                     hash = ((hash << 5) - hash) + char;
-                    hash |= 0; 
+                    hash |= 0;
                 }
                 return Math.abs(hash);
             }
@@ -322,27 +355,27 @@
             function updateVisuals(name) {
                 const seed = generateSeed(name);
                 const hue1 = seed % 360;
-                const hue2 = (hue1 + 120) % 360; 
-                
+                const hue2 = (hue1 + 120) % 360;
+
                 const gradient = `radial-gradient(circle at 70% 30%, hsla(${hue1}, 50%, 15%, 0.7), var(--bg-color) 60%), radial-gradient(circle at 30% 70%, hsla(${hue2}, 50%, 15%, 0.7), var(--bg-color) 60%)`;
                 container.style.background = gradient;
             }
-            
+
             function resetCeremony() {
                 isSubmitted = false;
                 nameDisplay.classList.remove('submitted');
-                
+
                 affirmationContainer.style.opacity = '0';
                 nameDisplay.style.opacity = '0';
 
                 setTimeout(() => {
                     affirmationContainer.style.display = 'none';
                     promptContainer.style.display = 'block';
-                    
+
                     nameInput.value = '';
                     nameDisplay.textContent = 'Aurelia';
                     container.style.background = `radial-gradient(circle at 70% 30%, hsla(220, 50%, 15%, 0.8), var(--bg-color) 60%)`;
-                    
+
                     setTimeout(() => {
                         promptContainer.style.opacity = '1';
                         nameDisplay.style.opacity = '1';
@@ -367,7 +400,7 @@
                 if (e.key === 'Enter' && nameInput.value.trim() !== '' && !isSubmitted) {
                     isSubmitted = true;
                     promptContainer.style.opacity = '0';
-                    
+
                     setTimeout(() => {
                         promptContainer.style.display = 'none';
                         affirmationContainer.style.display = 'block';
@@ -376,7 +409,7 @@
                     }, 1000);
                 }
             });
-            
+
             nameDisplay.addEventListener('click', () => {
                 if (isSubmitted) {
                     resetCeremony();
@@ -387,4 +420,5 @@
         });
     </script>
 </body>
+
 </html>
